@@ -151,7 +151,6 @@ TARGET = dualMoco
 #     this an empty or blank macro!
 OBJDIR = .
 
-
 # Path to the LUFA library  ( to LUFA latest )
 LUFA_PATH = ../../LUFA
 
@@ -167,7 +166,7 @@ LUFA_OPTS += -D USE_STATIC_OPTIONS="(USB_DEVICE_OPT_FULLSPEED | USB_OPT_REG_ENAB
 
 
 # Create the LUFA source path variables by including the LUFA root makefile
-include $(LUFA_PATH)/makefile
+# include $(LUFA_PATH)/makefile
 
 
 # List C source files here. (C dependencies are automatically generated.)
@@ -207,7 +206,7 @@ ASRC =
 # Optimization level, can be [0, 1, 2, 3, s]. 
 #     0 = turn off optimization. s = optimize for size.
 #     (Note: 3 is not always the best optimization level. See avr-libc FAQ.)
-OPT = s
+OPTIMIZATION = s
 
 
 # Debugging format.
@@ -528,6 +527,22 @@ ALL_ASFLAGS = -mmcu=$(MCU) -I. -x assembler-with-cpp $(ASFLAGS)
 #all: begin gccversion sizebefore build checkinvalidevents showliboptions showtarget sizeafter end
 all: begin gccversion sizebefore build showliboptions showtarget sizeafter end
 
+# Include LUFA-specific DMBS extension modules
+DMBS_LUFA_PATH ?= $(LUFA_PATH)/Build/LUFA
+include $(DMBS_LUFA_PATH)/lufa-sources.mk
+include $(DMBS_LUFA_PATH)/lufa-gcc.mk
+
+# Include common DMBS build system modules
+#DMBS_PATH ?= $(LUFA_PATH)/Build/DMBS/DMBS
+#include $(DMBS_PATH)/core.mk
+#include $(DMBS_PATH)/cppcheck.mk
+#include $(DMBS_PATH)/doxygen.mk
+#include $(DMBS_PATH)/dfu.mk
+#include $(DMBS_PATH)/gcc.mk
+#include $(DMBS_PATH)/hid.mk
+#include $(DMBS_PATH)/avrdude.mk
+#include $(DMBS_PATH)/atprogram.mk
+
 # Change the build target to build a HEX file or a library.
 build: elf hex eep lss sym asm
 #build: lib
@@ -570,14 +585,14 @@ sizeafter:
 	@if test -f $(TARGET).elf; then echo; echo $(MSG_SIZE_AFTER); $(ELFSIZE); \
 	2>/dev/null; echo; fi
 
-#$(LUFA_PATH)/LUFA/LUFA_Events.lst:
-#	@make -C $(LUFA_PATH)/LUFA/ LUFA_Events.lst
+#$(LUFA_PATH)/LUFA_Events.lst:
+#	@make -C $(LUFA_PATH)/LUFA_Events.lst
 
-#checkinvalidevents: $(LUFA_PATH)/LUFA/LUFA_Events.lst
+#checkinvalidevents: $(LUFA_PATH)/LUFA_Events.lst
 #	@echo
 #	@echo Checking for invalid events...
 #	@$(shell) avr-nm $(OBJ) | sed -n -e 's/^.*EVENT_/EVENT_/p' | \
-#	                 grep -F -v --file=$(LUFA_PATH)/LUFA/LUFA_Events.lst > InvalidEvents.tmp || true
+#	                 grep -F -v --file=$(LUFA_PATH)/LUFA_Events.lst > InvalidEvents.tmp || true
 #	@sed -n -e 's/^/  WARNING - INVALID EVENT NAME: /p' InvalidEvents.tmp
 #	@if test -s InvalidEvents.tmp; then exit 1; fi
 

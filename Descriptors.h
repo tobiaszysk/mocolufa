@@ -47,9 +47,10 @@
 #define _DESCRIPTORS_H_
 
 	/* Includes: */
+		#include <LUFA/Drivers/USB/USB.h>
+
 		#include <avr/pgmspace.h>
 
-		#include <LUFA/Drivers/USB/USB.h>
 		#include <LUFA/Drivers/USB/Class/CDC.h>
 		#include <LUFA/Drivers/USB/Class/MIDI.h>
 		
