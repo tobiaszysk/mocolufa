@@ -22,6 +22,8 @@
 #----------------------------------------------------------------------------
 # On command line:
 #
+# make help = Target help information.
+#
 # make all = Make software.
 #
 # make clean = Clean out built project files.
@@ -79,10 +81,8 @@ ARCH = AVR8
 MCU_AVRDUDE = $(MCU)
 MCU_DFU = $(MCU)
 
-# MCU_AVRDUDE = at90usb82
-
-# Specify the Vender ID and Arduino model using the assigned PID.  This is used by Descriptors.c
-#   to set PID and product descriptor string
+# Specify the Vendor ID and Arduino model using the assigned PID.  
+# This is used by Descriptors.c to set PID and product descriptor string.
 
 # Specify the Arduino VID
 ARDUINO_VID = 0x2341
@@ -153,7 +153,7 @@ OBJDIR = .
 
 
 # Path to the LUFA library  ( to LUFA latest )
-LUFA_PATH = ../..
+LUFA_PATH = ../../LUFA
 
 
 # LUFA library compile-time options
@@ -167,27 +167,27 @@ LUFA_OPTS += -D USE_STATIC_OPTIONS="(USB_DEVICE_OPT_FULLSPEED | USB_OPT_REG_ENAB
 
 
 # Create the LUFA source path variables by including the LUFA root makefile
-include $(LUFA_PATH)/LUFA/makefile
+include $(LUFA_PATH)/makefile
 
 
 # List C source files here. (C dependencies are automatically generated.)
-SRC = $(TARGET).c                                                 \
-	  Descriptors.c                                               \
-	  $(LUFA_SRC_USB)                                             \
-	  $(LUFA_SRC_USBCLASS)						\
-	  $(LUFA_PATH)/LUFA/Drivers/USB/LowLevel/Device.c		\
-	  $(LUFA_PATH)/LUFA/Drivers/USB/LowLevel/Endpoint.c           \
-	  $(LUFA_PATH)/LUFA/Drivers/USB/HighLevel/HostStandardReq.c	\
-	  $(LUFA_PATH)/LUFA/Drivers/USB/LowLevel/Host.c               \
-	  $(LUFA_PATH)/LUFA/Drivers/USB/LowLevel/Pipe.c               \
-	  $(LUFA_PATH)/LUFA/Drivers/USB/LowLevel/USBController.c      \
-	  $(LUFA_PATH)/LUFA/Drivers/USB/HighLevel/Events.c            \
-	  $(LUFA_PATH)/LUFA/Drivers/USB/LowLevel/USBInterrupt.c       \
-	  $(LUFA_PATH)/LUFA/Drivers/USB/HighLevel/USBTask.c           \
-	  $(LUFA_PATH)/LUFA/Drivers/USB/HighLevel/DeviceStandardReq.c \
-	  $(LUFA_PATH)/LUFA/Drivers/USB/HighLevel/ConfigDescriptor.c  \
-	  $(LUFA_PATH)/LUFA/Drivers/USB/Class/Device/CDC.c            \
-	  $(LUFA_PATH)/LUFA/Drivers/USB/Class/Host/CDC.c              
+SRC = $(TARGET).c                                            \
+	  Descriptors.c                                          \
+	  $(LUFA_SRC_USB)                                        \
+	  $(LUFA_SRC_USBCLASS)							         \
+	  $(LUFA_PATH)/Drivers/USB/LowLevel/Device.c			 \
+	  $(LUFA_PATH)/Drivers/USB/LowLevel/Endpoint.c           \
+	  $(LUFA_PATH)/Drivers/USB/HighLevel/HostStandardReq.c	 \
+	  $(LUFA_PATH)/Drivers/USB/LowLevel/Host.c               \
+	  $(LUFA_PATH)/Drivers/USB/LowLevel/Pipe.c               \
+	  $(LUFA_PATH)/Drivers/USB/LowLevel/USBController.c      \
+	  $(LUFA_PATH)/Drivers/USB/HighLevel/Events.c            \
+	  $(LUFA_PATH)/Drivers/USB/LowLevel/USBInterrupt.c       \
+	  $(LUFA_PATH)/Drivers/USB/HighLevel/USBTask.c           \
+	  $(LUFA_PATH)/Drivers/USB/HighLevel/DeviceStandardReq.c \
+	  $(LUFA_PATH)/Drivers/USB/HighLevel/ConfigDescriptor.c  \
+	  $(LUFA_PATH)/Drivers/USB/Class/Device/CDC.c            \
+	  $(LUFA_PATH)/Drivers/USB/Class/Host/CDC.c              
 
 
 # List C++ source files here. (C dependencies are automatically generated.)
