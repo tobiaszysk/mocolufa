@@ -1,6 +1,6 @@
 # Hey Emacs, this is a -*- makefile -*-
 #----------------------------------------------------------------------------
-# WinAVR Makefile Template written by Eric B. Weddington, J¢ørg Wunsch, et al.
+# WinAVR Makefile Template written by Eric B. Weddington, Jï¿½ï¿½rg Wunsch, et al.
 #  >> Modified for use with the LUFA project. <<
 #
 # Released to the Public Domain
@@ -17,6 +17,7 @@
 # Dean Camera
 # Opendous Inc.
 # Denver Gingerich
+# Tobias Zysk
 #
 #----------------------------------------------------------------------------
 # On command line:
@@ -68,6 +69,13 @@
 # for Uno R3
 MCU = atmega16u2
 
+ARCH = AVR8
+
+# in case of MCU atmega8u2
+# MCU_AVRDUDE = at90usb82
+# MCU_DFU = $(MCU_AVRDUDE)
+
+# in case of MCU atmega16u2
 MCU_AVRDUDE = $(MCU)
 MCU_DFU = $(MCU)
 
@@ -79,9 +87,9 @@ MCU_DFU = $(MCU)
 # Specify the Arduino VID
 ARDUINO_VID = 0x2341
 # Uno PID:
-ARDUINO_MODEL_PID = 0x0001
+# ARDUINO_MODEL_PID = 0x0001
 # Mega 2560 PID:
-#ARDUINO_MODEL_PID = 0x0010
+ARDUINO_MODEL_PID = 0x0010
 
 # use PID/VID for LUFA USB Serial Demo Application
 #  ATMEL VID
@@ -109,6 +117,12 @@ BOARD  = USER
 #     software delays.
 F_CPU = 16000000
 
+# The F_USB Parameter
+# 	  This parameter indicates the raw input clock frequency to the USB module within the microcontroller in Hz. This may be very different on some platforms to the main CPU clock or other peripheral/bus clocks.
+#
+# 	  Note
+# 	  On AVR8 platforms, this must be equal to 8000000 or 16000000.
+F_USB = $(F_CPU)
 
 # Input clock frequency.
 #     This will define a symbol, F_CLOCK, in all source code files equal to the 
@@ -138,8 +152,8 @@ TARGET = dualMoco
 OBJDIR = .
 
 
-# Path to the LUFA library  ( to LUFA-100807 )
-LUFA_PATH = ../../LUFA-100807
+# Path to the LUFA library  ( to LUFA latest )
+LUFA_PATH = ../..
 
 
 # LUFA library compile-time options
