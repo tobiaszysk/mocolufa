@@ -16,9 +16,9 @@ There are two mode on this firmware, USB-MIDI(MocoLUFA) and Arduino-Serial.
 INSTRUCTIONS  
 1. Burn 16u2 on Arduino Uno.  
    check original document below.  
-2. USB-MIDI formware work as default.  
-3. To enable Arduino-Serial, ass jumper to PIN 4(MOSI PB2) and PIN6 (grand) on ICSP connector for 16U2.  
-   Reset is required to swicth the firmware mode.  
+2. USB-MIDI firmware is started by default.  
+3. To enable Arduino-Serial, place a jumper between PIN 4 (MOSI PB2) and PIN6 (grand) on ICSP connector for 16U2.  
+   A reset is required to switch the firmware mode.  
   
 -Yoshi  
   
