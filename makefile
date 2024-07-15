@@ -152,7 +152,7 @@ TARGET = dualMoco
 OBJDIR = .
 
 # Path to the LUFA library  ( to LUFA latest )
-LUFA_PATH = ../../LUFA
+LUFA_PATH = ../..
 
 
 # LUFA library compile-time options
@@ -166,27 +166,27 @@ LUFA_OPTS += -D USE_STATIC_OPTIONS="(USB_DEVICE_OPT_FULLSPEED | USB_OPT_REG_ENAB
 
 
 # Create the LUFA source path variables by including the LUFA root makefile
-# include $(LUFA_PATH)/makefile
+include $(LUFA_PATH)/LUFA/makefile
 
 
 # List C source files here. (C dependencies are automatically generated.)
-SRC = $(TARGET).c                                            \
-	  Descriptors.c                                          \
-	  $(LUFA_SRC_USB)                                        \
-	  $(LUFA_SRC_USBCLASS)							         \
-	  $(LUFA_PATH)/Drivers/USB/LowLevel/Device.c			 \
-	  $(LUFA_PATH)/Drivers/USB/LowLevel/Endpoint.c           \
-	  $(LUFA_PATH)/Drivers/USB/HighLevel/HostStandardReq.c	 \
-	  $(LUFA_PATH)/Drivers/USB/LowLevel/Host.c               \
-	  $(LUFA_PATH)/Drivers/USB/LowLevel/Pipe.c               \
-	  $(LUFA_PATH)/Drivers/USB/LowLevel/USBController.c      \
-	  $(LUFA_PATH)/Drivers/USB/HighLevel/Events.c            \
-	  $(LUFA_PATH)/Drivers/USB/LowLevel/USBInterrupt.c       \
-	  $(LUFA_PATH)/Drivers/USB/HighLevel/USBTask.c           \
-	  $(LUFA_PATH)/Drivers/USB/HighLevel/DeviceStandardReq.c \
-	  $(LUFA_PATH)/Drivers/USB/HighLevel/ConfigDescriptor.c  \
-	  $(LUFA_PATH)/Drivers/USB/Class/Device/CDC.c            \
-	  $(LUFA_PATH)/Drivers/USB/Class/Host/CDC.c              
+SRC = $(TARGET).c                                            	  \
+	  Descriptors.c                                            	  \
+	  $(LUFA_SRC_USB)                                        	  \
+	  $(LUFA_SRC_USBCLASS)							         	  \
+	  $(LUFA_PATH)/LUFA/Drivers/USB/LowLevel/Device.c			  \
+	  $(LUFA_PATH)/LUFA/Drivers/USB/LowLevel/Endpoint.c           \
+	  $(LUFA_PATH)/LUFA/Drivers/USB/HighLevel/HostStandardReq.c	  \
+	  $(LUFA_PATH)/LUFA/Drivers/USB/LowLevel/Host.c               \
+	  $(LUFA_PATH)/LUFA/Drivers/USB/LowLevel/Pipe.c               \
+	  $(LUFA_PATH)/LUFA/Drivers/USB/LowLevel/USBController.c      \
+	  $(LUFA_PATH)/LUFA/Drivers/USB/HighLevel/Events.c            \
+	  $(LUFA_PATH)/LUFA/Drivers/USB/LowLevel/USBInterrupt.c       \
+	  $(LUFA_PATH)/LUFA/Drivers/USB/HighLevel/USBTask.c           \
+	  $(LUFA_PATH)/LUFA/Drivers/USB/HighLevel/DeviceStandardReq.c \
+	  $(LUFA_PATH)/LUFA/Drivers/USB/HighLevel/ConfigDescriptor.c  \
+	  $(LUFA_PATH)/LUFA/Drivers/USB/Class/Device/CDC.c            \
+	  $(LUFA_PATH)/LUFA/Drivers/USB/Class/Host/CDC.c              
 
 
 # List C++ source files here. (C dependencies are automatically generated.)
@@ -220,8 +220,8 @@ DEBUG = dwarf-2
 #     Each directory must be seperated by a space.
 #     Use forward slashes for directory separators.
 #     For a directory that has spaces, enclose it in quotes.
-EXTRAINCDIRS = $(LUFA_PATH)/
-
+EXTRAINCDIRS = $(LUFA_PATH)/LUFA
+#EXTRAINCDIRS = /Users/tobiaszysk/Documents/Programmierung/organ-desk-controller/avr-toolchain/avr-gcc_mac_toolchain/AVRToolchain /Users/tobiaszysk/Documents/Programmierung/organ-desk-controller/utils/lufa/LUFA_100807/LUFA
 
 # Compiler flag to set the C Standard level.
 #     c89   = "ANSI" C
@@ -279,6 +279,7 @@ CFLAGS += -fshort-enums
 CFLAGS += -fno-strict-aliasing
 CFLAGS += -Wall
 CFLAGS += -Wstrict-prototypes
+CFLAGS += -Wunused-but-set-variable
 #CFLAGS += -mshort-calls
 #CFLAGS += -fno-unit-at-a-time
 #CFLAGS += -Wundef
@@ -306,7 +307,7 @@ CPPFLAGS += -fshort-enums
 CPPFLAGS += -fno-exceptions
 CPPFLAGS += -Wall
 CPPFLAGS += -Wundef
-CFLAGS += -Wundef
+CPPFLAGS += -Wunused-but-set-variable
 #CPPFLAGS += -mshort-calls
 #CPPFLAGS += -fno-unit-at-a-time
 #CPPFLAGS += -Wstrict-prototypes
@@ -528,9 +529,9 @@ ALL_ASFLAGS = -mmcu=$(MCU) -I. -x assembler-with-cpp $(ASFLAGS)
 all: begin gccversion sizebefore build showliboptions showtarget sizeafter end
 
 # Include LUFA-specific DMBS extension modules
-DMBS_LUFA_PATH ?= $(LUFA_PATH)/Build/LUFA
-include $(DMBS_LUFA_PATH)/lufa-sources.mk
-include $(DMBS_LUFA_PATH)/lufa-gcc.mk
+#DMBS_LUFA_PATH ?= $(LUFA_PATH)/Build/LUFA
+#include $(DMBS_LUFA_PATH)/lufa-sources.mk
+#include $(DMBS_LUFA_PATH)/lufa-gcc.mk
 
 # Include common DMBS build system modules
 #DMBS_PATH ?= $(LUFA_PATH)/Build/DMBS/DMBS
