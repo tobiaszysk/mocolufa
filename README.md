@@ -20,8 +20,9 @@ Build the firmware:
 2. Extract and add a .gitignore / adjust the .gitignore and add an exclusion for this project's root folder
 3. Copy this whole folder into the folder LUFA_100807/Projects
 4. Maybe you need to adjust the C / GCC include path list
-5. Navigate in terminal into the project folder (not the LUFA root folder) and execute command "make all".
-6. Check if the build process completed successfully or if certain errors are logged.
+5. In "Descriptors.c" set your desired vendor and device names (vendor and product strings)
+6. Navigate in terminal into the project folder (not the LUFA root folder) and execute command "make all"
+7. Check if the build process completed successfully or if certain errors are logged
 
 -Tobias Zysk-
 
