@@ -46,7 +46,7 @@
  */
 
 #include "Descriptors.h"
-#include "dualMoco.h"
+#include "mocoZyskOpusTwo.h"
 
 /* On some devices, there is a factory set internal serial number which can be automatically sent to the host as
  * the device's serial number when the Device Descriptor's .SerialNumStrIndex entry is set to USE_INTERNAL_SERIAL.
@@ -424,9 +424,9 @@ const USB_Descriptor_String_t PROGMEM ManufacturerStringSerial =
 /* for MIDI */
 const USB_Descriptor_String_t PROGMEM ManufacturerStringMIDI =
 {
-	.Header                 = {.Size = USB_STRING_LEN(17), .Type = DTYPE_String},
+	.Header                 = {.Size = USB_STRING_LEN(35), .Type = DTYPE_String},
 
-	.UnicodeString          = L"kuwatay@nifty.com"
+	.UnicodeString          = L"Wood And Brass (mail@tobiaszysk.de)"
 };
 /** Product descriptor string. This is a Unicode string containing the product's details in human readable form,
  *  and is read out upon request by the host when the appropriate string ID is requested, listed in the Device
@@ -453,9 +453,9 @@ const USB_Descriptor_String_t PROGMEM ProductStringSerial =
 /* for MIDI */
 const USB_Descriptor_String_t PROGMEM ProductStringMIDI =
 {
-	.Header                 = {.Size = USB_STRING_LEN(8), .Type = DTYPE_String},
+	.Header                 = {.Size = USB_STRING_LEN(14), .Type = DTYPE_String},
 
-	.UnicodeString          = L"MocoLUFA"
+	.UnicodeString          = L"WaBKeyboardGreatZysk"
 };
 
 /** This function is called by the library when in device mode, and must be overridden (see library "USB Descriptors"

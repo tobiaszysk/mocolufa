@@ -56,11 +56,11 @@
 
 		#include "Lib/LightweightRingBuff.h"
 
-		#include <LUFA/Version.h>
-		#include <LUFA/Drivers/Board/LEDs.h>
-		#include <LUFA/Drivers/Peripheral/Serial.h>
-		#include <LUFA/Drivers/USB/USB.h>
-		#include <LUFA/Drivers/USB/Class/CDC.h>
+		#include "/Users/tobiaszysk/Documents/Programmierung/organ-desk-controller/utils/lufa/LUFA_100807/LUFA/Version.h"
+		#include "/Users/tobiaszysk/Documents/Programmierung/organ-desk-controller/utils/lufa/LUFA_100807/LUFA/Drivers/Board/LEDs.h"
+		#include "/Users/tobiaszysk/Documents/Programmierung/organ-desk-controller/utils/lufa/LUFA_100807/LUFA/Drivers/Peripheral/Serial.h"
+		#include "/Users/tobiaszysk/Documents/Programmierung/organ-desk-controller/utils/lufa/LUFA_100807/LUFA/Drivers/USB/USB.h"
+		#include "/Users/tobiaszysk/Documents/Programmierung/organ-desk-controller/utils/lufa/LUFA_100807/LUFA/Drivers/USB/Class/CDC.h"
 		
 	/* Macros: */
 		/** LED mask for the library LED driver, to indicate TX activity. */

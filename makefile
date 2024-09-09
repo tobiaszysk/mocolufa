@@ -143,7 +143,7 @@ FORMAT = ihex
 
 
 # Target file name (without extension).
-TARGET = dualMoco
+TARGET = mocoZyskOpusTwo
 
 
 # Object files directory

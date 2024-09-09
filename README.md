@@ -1,35 +1,6 @@
-mocoLUFA (MIDI firmware for Arduino)
-======================
-Fork of repository by morecat_lab (see information down below)
-
-
-2024/07/15
-
-based on LUFA-100807
-
-This is a dual mode USB firmware for Arduino boards.
-1) USB-MIDI (MocoLUFA)
-2) Arduino-Serial
-
-GETTING STARTED:
-
-Build the firmware:
-
-1. Download LUFA-100807 <br/>
-	https://www.fourwalledcubicle.com/LUFA.php
-2. Extract and add a .gitignore / adjust the .gitignore and add an exclusion for this project's root folder
-3. Copy this whole folder into the folder LUFA_100807/Projects
-4. Maybe you need to adjust the C / GCC include path list
-5. In "Descriptors.c" set your desired vendor and device names (vendor and product strings)
-6. Navigate in terminal into the project folder (not the LUFA root folder) and execute command "make all"
-7. Check if the build process completed successfully or if certain errors are logged
-
--Tobias Zysk-
-
--------------------------------------
 
 mocoLUFA (MIDI firmware for Arduino Uno)
-----------------------
+======================
 dualMocoLUFA Project
 Copyright (C) 2013,2014,2015 by morecat_lab
 

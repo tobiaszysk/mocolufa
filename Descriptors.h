@@ -47,12 +47,12 @@
 #define _DESCRIPTORS_H_
 
 	/* Includes: */
-		#include <LUFA/Drivers/USB/USB.h>
+		#include "/Users/tobiaszysk/Documents/Programmierung/organ-desk-controller/utils/lufa/LUFA_100807/LUFA/Drivers/USB/USB.h"
 
 		#include <avr/pgmspace.h>
 
-		#include <LUFA/Drivers/USB/Class/CDC.h>
-		#include <LUFA/Drivers/USB/Class/MIDI.h>
+		#include "/Users/tobiaszysk/Documents/Programmierung/organ-desk-controller/utils/lufa/LUFA_100807/LUFA/Drivers/USB/Class/CDC.h"
+		#include "/Users/tobiaszysk/Documents/Programmierung/organ-desk-controller/utils/lufa/LUFA_100807/LUFA/Drivers/USB/Class/MIDI.h"
 		
 	/* Product-specific definitions: */
 		#define ARDUINO_UNO_PID			0x0001
